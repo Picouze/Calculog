@@ -3,6 +3,8 @@ package calcul;
 import java.util.Scanner;
 
 public class Main {
+	
+	// coucou
 
 	private int multiplier(int nb1, int nb2){
 		int result = nb1*nb2;
