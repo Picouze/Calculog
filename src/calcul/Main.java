@@ -1,5 +1,7 @@
 package calcul;
 
+import java.util.Scanner;
+
 public class Main {
 
 	private int multiplier(int nb1, int nb2){
@@ -22,9 +24,20 @@ public class Main {
 		return result;
 	}
 	
+	private String detecterOperande(String operation){
+		String type;
+		type = "/";
+		return type;
+	}
+	
+	private static String saisieOperation(){ 
+		Scanner scan = new Scanner(System.in);
+		return scan.toString();
+	}
+	
 	public static void main(String[] args) {
-		
-
+		String operation = saisieOperation();
+		System.out.println(operation);
 	}
 
 }
