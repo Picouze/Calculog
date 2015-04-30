@@ -3,8 +3,6 @@ package calcul;
 import java.util.Scanner;
 
 public class Main {
-	
-	
 
 	private int multiplier(int nb1, int nb2){
 		int result = nb1*nb2;
@@ -39,7 +37,6 @@ public class Main {
 	
 	public static void main(String[] args) {
 		String operation = saisieOperation();
-		System.out.println(operation);
 	}
 
 }
