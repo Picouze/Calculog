@@ -1,22 +1,24 @@
-package Singleton;
+package design.patterns;
+
+import java.util.Observable;
+
 /**
- * @author DDaFox
  * Classe créant le Singleton
+ * @author DDaFox
  */
-public class LoggerCalcul {
+public class LoggerCalcul extends Observable {
 	
 	private static LoggerCalcul INSTANCE;
 	private String log;
 	
 	/** 
-	 * @author DDaFox
 	 * Constructeur privé
 	 */
 	private LoggerCalcul(){
 		log = new String();
 	}
 	/** 
-	 * @author DDaFox
+	 * 
 	 * Point d'accès pour l'instance unique du singleton 
 	 */
     public static synchronized LoggerCalcul getInstance(){
@@ -26,20 +28,19 @@ public class LoggerCalcul {
         return INSTANCE;
     }
 	/**
-	 * @author DDaFox
 	 * Méthode permetant d'ajouter le log
 	 * @param log
 	 */
-    public void ajouterLog(String log){
-        // On ajoute également la date du message.
+    public void setLog(String log){
     	this.log = "[INFO]" + log;
+    	setChanged();
+    	notifyObservers(this.log);
     }
     /**
-     * @author DDaFox
      * Méthode retournant les logs
      * @return log
      */
-    public String afficherLog(){
+    public String getLog(){
             return log;
     }
 }
