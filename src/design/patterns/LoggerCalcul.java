@@ -16,6 +16,7 @@ public class LoggerCalcul extends Observable {
 	 */
 	private LoggerCalcul(){
 		log = new String();
+		addObserver(new CalculObserver());
 	}
 	/** 
 	 * 
@@ -25,6 +26,8 @@ public class LoggerCalcul extends Observable {
     	if(INSTANCE==null){
     		INSTANCE = new LoggerCalcul();
     	}
+    	
+    	
         return INSTANCE;
     }
 	/**
@@ -32,7 +35,7 @@ public class LoggerCalcul extends Observable {
 	 * @param log
 	 */
     public void setLog(String log){
-    	this.log = "[INFO]" + log;
+    	this.log = "[INFO]" + log +"\n";
     	setChanged();
     	notifyObservers(this.log);
     }
