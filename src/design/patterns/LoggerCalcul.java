@@ -1,13 +1,12 @@
-package Singleton;
+package design.patterns;
 
 import java.util.Observable;
-import java.util.Observer;
 
 /**
  * Classe créant le Singleton
  * @author DDaFox
  */
-public class LoggerCalcul implements Observer {
+public class LoggerCalcul extends Observable {
 	
 	private static LoggerCalcul INSTANCE;
 	private String log;
@@ -32,18 +31,16 @@ public class LoggerCalcul implements Observer {
 	 * Méthode permetant d'ajouter le log
 	 * @param log
 	 */
-    public void ajouterLog(String log){
+    public void setLog(String log){
     	this.log = "[INFO]" + log;
+    	setChanged();
+    	notifyObservers(this.log);
     }
     /**
      * Méthode retournant les logs
      * @return log
      */
-    public String afficherLog(){
+    public String getLog(){
             return log;
     }
-	@Override
-	public void update(Observable o, Object arg) {
-		System.out.println(afficherLog());
-	}
 }
